@@ -1,30 +1,41 @@
-Write code to generate a hash where the keys are the numbers from 1 to 50 and the values follow these rules:
+# Write code to generate a hash where the keys are the numbers from 1 to 50 and the values follow these rules:
 
-if the number is divisible by 2 the value should be one more than the key
-if the number is divisible by 7 the value should be one less than the key
-if the number is divisible by 2 and 7 the value should be the key multiplied by 2
-otherwise the value should be the same number as the key
-
-
-1. make a method
-2. pass in a "key:" as an argument
-3. output/return a "value"
-4. store the keys and values in a Hash
+# if the number is divisible by 2 the value should be one more than the key
+# if the number is divisible by 7 the value should be one less than the key
+# if the number is divisible by 2 and 7 the value should be the key multiplied by 2
+# otherwise the value should be the same number as the key
 
 
-def divisible_hash(key_num)
+# 1. make a method
+# 2. pass in a "key:" as an argument
+# 3. output/return a "value"
+# 4. store the keys and values in a Hash
+
+
+
+def divisible_hash(num)
   key_num = {}
+  (num).each do |number|
 
-if key_num %2 == 0 && key_num %7 == 0
-  return key_num * 2
+    if number %2 == 0 && number %7 == 0
+      key_num[number] = number * 2
 
-  elsif key_num %2 == 0
-    return key_num + 1
+    elsif number %2 == 0
+      key_num[number] = number + 1
+  
+    elsif number %7 == 0
+      key_num[number] = number - 1
 
-  elsif key_num %7 == 0
-    return key_num - 1
+    else   
+      key_num[number] = number
+    end
+    
+  end
+  puts key_num
+end 
 
-end
+
+puts divisible_hash(1..80)
 
 
 
